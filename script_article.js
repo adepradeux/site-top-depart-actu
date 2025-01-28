@@ -4,18 +4,23 @@ let elementAccroche = document.getElementById("accroche");
 let elementContenu = document.getElementById("contenu");
 
 let tabArticles = new Array;
+
+let urlParams = new URLSearchParams(window.location.search);
+let numArticle = urlParams.get('num');
+console.log("num article " + numArticle);
+
 //Importation des données des fichiers .csv pour les calculettes et les tableaux historique de données
 fetch("./contenus_articles.csv")   // fetch permet d'accéder à des ressources sur le réseau : dans ce cas accès au fichier.csv du dossier - fetch renvoie une promise
    .then(response => response.text())
    .then((response) => {
        ExtractData (response, tabArticles)
 
-       ImporterArticles();   
+       ImporterArticles(numArticle);   
    })
 
-function ImporterArticles(numArticle) {
+
+   function ImporterArticles(numArticle) {
    //on recherche l'indice de la ligne correspondant au numéro de l'article
-   numArticle = 2; 
   
    let indiceLigne;
    let titre;

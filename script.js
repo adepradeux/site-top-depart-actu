@@ -16,19 +16,26 @@ fetch("./contenus_articles.csv")   // fetch permet d'accéder à des ressources 
            let tag = tabArticles[i][2];
            let titre = tabArticles[i][3];
            let accroche = tabArticles[i][4];
-           
+                      
            //lien vers l'image de l'article
            let numArticle = tabArticles[i][0];
-           let pathRoot = "\\images\\image_article_";
+           let pathRoot = "images\\image_article_";
            pathRoot = pathRoot.concat('', numArticle, ".png");
            console.log(pathRoot);
 
            //création de l'élément card qui contient tag, titre, accroche, date et photo de l'article
+           let newLien = document.createElement("a");
+           newLien.href = "article.html?num=" + numArticle;
+           newLien.className = "lien";
+           conteneurArticleCards.appendChild(newLien);
+          
            let newArticleCard = document.createElement("div");
            newArticleCard.className = "article-card";
+           newLien.appendChild(newArticleCard);
+
            let newCardContenu = document.createElement("div");
            newCardContenu.className = "card-contenu";
-           conteneurArticleCards.appendChild(newArticleCard);
+          
            newArticleCard.appendChild(newCardContenu);
            
            //création des éléments du bloc gauche (tag, titre, accroche + bouton pour accéder à l'article)
@@ -74,13 +81,8 @@ fetch("./contenus_articles.csv")   // fetch permet d'accéder à des ressources 
            newCardBlocDroit.appendChild(newDateActu);
 
            
-           /*newLien.innerText = tabHistorique[i].innerHTML.trim();
-           newLien.style.fontSize = "22px";
-           newLien.href = hrefLien;
-           newLien.className = "regime";
-           newLien.id = idLien;
-           menuHistorique.appendChild(newLien);*/
-        }
+         
+           }
     }
     
     function ExtractData (text, tabFinal) {

@@ -80,7 +80,8 @@ h2 {
     margin : 50px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     
-    transition-duration: 0.5s;
+    transition-duration: 0.3s;
+    
 }
 
 .card-contenu {
@@ -131,7 +132,7 @@ h2 {
     margin: 10px 5px 0 5px;
     border: none;
     transition-property:all;
-    transition-duration: 0.5s;
+    font-weight: bold;   
  }
 
  .img-actu {
@@ -158,12 +159,12 @@ h2 {
 
  .lien-contenu-global:hover {
     cursor:pointer;
-    font-size : 19px;
+  
 }
 
 .article-card:hover {
     cursor: pointer;
-    border: 1px solid #afadad;
+    border: 1px solid var(--prim);
     box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.1)
     
 }
@@ -189,4 +190,9 @@ h2 {
 
 #contenu {
     line-height: 1.5;
+}
+
+.lien {
+    display: block;
+    text-decoration: none;
 }
